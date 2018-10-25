@@ -4,12 +4,12 @@
 
 ## 安装
 
-通过 go get 安装使用：
+通过 `go get` 安装使用：
 
 ```shell
-// 先安装 Redis client
+// install Redis client
 go get github.com/gomodule/redigo/redis
-// 再安装 Delayer client
+// install Delayer client
 go get github.com/mixstart/delayer-client-golang/delayer
 ```
 
