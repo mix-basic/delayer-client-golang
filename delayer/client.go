@@ -31,18 +31,18 @@ func (p *Client) Init() error {
 			return err
 		}
 		p.Conn = conn
-	}
-	// 验证密码
-	if (p.Password != "") {
-		if _, err := p.Conn.Do("AUTH", p.Password); err != nil {
+		// 验证密码
+		if (p.Password != "") {
+			if _, err := p.Conn.Do("AUTH", p.Password); err != nil {
+				p.Conn.Close()
+				return err
+			}
+		}
+		// 选库
+		if _, err := p.Conn.Do("SELECT", p.Database); err != nil {
 			p.Conn.Close()
 			return err
 		}
-	}
-	// 选库
-	if _, err := p.Conn.Do("SELECT", p.Database); err != nil {
-		p.Conn.Close()
-		return err
 	}
 	return nil
 }
