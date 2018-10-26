@@ -86,10 +86,7 @@ func (p *Client) Pop(topic string) (*Message, error) {
 	if result["topic"] == "" || result["body"] == "" {
 		return nil, errors.New("Job bucket has expired or is incomplete")
 	}
-	err = p.Conn.Send("DEL", PREFIX_JOB_BUCKET+id)
-	if err != nil {
-		return nil, err
-	}
+	p.Conn.Do("DEL", PREFIX_JOB_BUCKET+id)
 	msg := &Message{
 		ID:    id,
 		Topic: result["topic"],
@@ -112,10 +109,7 @@ func (p *Client) BPop(topic string, timeout int) (*Message, error) {
 	if result["topic"] == "" || result["body"] == "" {
 		return nil, errors.New("Job bucket has expired or is incomplete")
 	}
-	err = p.Conn.Send("DEL", PREFIX_JOB_BUCKET+id)
-	if err != nil {
-		return nil, err
-	}
+	p.Conn.Do("DEL", PREFIX_JOB_BUCKET+id)
 	msg := &Message{
 		ID:    id,
 		Topic: result["topic"],
