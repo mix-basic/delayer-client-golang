@@ -100,10 +100,11 @@ func (p *Client) Pop(topic string) (*Message, error) {
 
 // 阻塞取出任务
 func (p *Client) BPop(topic string, timeout int) (*Message, error) {
-	id, err := redis.String(p.Conn.Do("BRPOP", PREFIX_READY_QUEUE+topic, timeout))
+	values, err := redis.Strings(p.Conn.Do("BRPOP", PREFIX_READY_QUEUE+topic, timeout))
 	if err != nil {
 		return nil, err
 	}
+	id := values[1]
 	result, err := redis.StringMap(p.Conn.Do("HGETALL", PREFIX_JOB_BUCKET+id))
 	if err != nil {
 		return nil, err
