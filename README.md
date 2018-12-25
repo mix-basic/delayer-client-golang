@@ -15,8 +15,8 @@ go get github.com/mixstart/delayer-client-golang/delayer
 
 ## Documentation
 
-- [API Reference](https://godoc.org/github.com/mixstart/delayer-client-golang/delayer)
-- [Examples](https://godoc.org/github.com/mixstart/delayer-client-golang/delayer#pkg-examples)
+- [API Reference](https://godoc.org/github.com/mixbasic/delayer-client-golang/delayer)
+- [Examples](https://godoc.org/github.com/mixbasic/delayer-client-golang/delayer#pkg-examples)
 
 ## Example
 
