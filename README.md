@@ -10,7 +10,7 @@
 // install Redis client
 go get github.com/gomodule/redigo/redis
 // install Delayer client
-go get github.com/mixstart/delayer-client-golang/delayer
+go get github.com/mix-basic/delayer-client-golang/delayer
 ```
 
 ## Documentation
